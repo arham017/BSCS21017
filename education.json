@@ -1,0 +1,20 @@
+{
+    "education": [
+      {
+        "degree": "Matric",
+        "institution": "Government High School Mandi Town Layyah",
+        "graduationYear": "2018"
+      },
+      {
+        "degree": "Intermediate",
+        "institution": "Government Post Graduate College Layyah",
+        "graduationYear": "2020"
+      },
+      {
+        "degree": "Bachelor of Science in Computer Science",
+        "institution": "Information Technology University, Lahore",
+        "completionYear": "2025"
+      }
+    ]
+  }
+  

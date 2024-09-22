@@ -1,0 +1,25 @@
+{
+    "skills": [
+      {
+        "name": "HTML",
+        "type": "hard-skill"
+      },
+      {
+        "name": "CSS",
+        "type": "hard-skill"
+      },
+      {
+        "name": "JavaScript",
+        "type": "hard-skill"
+      },
+      {
+        "name": "Marketing",
+        "type": "soft-skill"
+      },
+      {
+        "name": "Problem-solving",
+        "type": "soft-skill"
+      }
+    ]
+  }
+  

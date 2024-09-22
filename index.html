@@ -43,54 +43,33 @@
     <!-- Skills Section -->
     <section id="skills">
         <h2>Skills</h2>
-        <div class="skills-container">
-            <div class="skill hard-skill">HTML</div>
-            <div class="skill hard-skill">CSS</div>
-            <div class="skill hard-skill">JavaScript</div>
-            <div class="skill soft-skill">Marketing</div>
-            <div class="skill soft-skill">Problem-solving</div>
+        <div class="skills-container" id="skills-container">
+            <!-- Skills will be dynamically injected here -->
         </div>
     </section>
+    
 
     <!-- Education Section -->
-<section id="education">
-    <h2>Education</h2>
-    <div class="education-container">
-        <div class="education-item">
-            <h3>Matric</h3>
-            <p>Government High School Mandi Town Layyah</p>
-            <p>Graduated: 2018</p>
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-container" id="education-container">
+            <!-- Education items will be dynamically injected here -->
         </div>
-        <div class="education-item">
-            <h3>Intermediate</h3>
-            <p>Government Post Graduate Collage Layyah</p>
-            <p>Graduated: 2020</p>
-        </div>
-        <div class="education-item">
-            <h3>Information Technology University, Lahore</h3>
-            <p>Bachelor of Science in Computer Science</p>
-            <p>Completed: 2025</p>
-        </div>
-    </div>
-</section>
+    </section>
+    <script src="education.js"></script>
+    
 
 
     <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
-        <div class="project-list">
-            <div class="project">
-                <h3>Chess Game in C++ using Object-Oriented Programming (OOP)</h3>
-                <p>Date: 2022</p>
-                <p>This project is a fully functional console-based chess game developed in C++ using Object-Oriented Programming (OOP) principles. The game simulates a standard two-player chess match with all the standard chess rules, including castling, en passant, and pawn promotion. The board and pieces are represented as classes, with each piece having its own movement logic. The game also includes validation for legal moves and checks for checkmate or stalemate conditions. The design emphasizes modularity, making it easy to expand or modify the game logic.</p>
-            </div>
-            <div class="project">
-                <h3>Tic-Tac-Toe Game in C++</h3>
-                <p>Date: 2022</p>
-                <p>This project is a simple console-based Tic-Tac-Toe game developed using C++. It allows two players to take turns marking the grid, checks for winning conditions, and handles cases of a draw. The game uses basic C++ structures for the board and player moves, with clear logic for checking rows, columns, and diagonals to determine the winner.</p>
-            </div>
+        <div class="project-list" id="project-list">
+            <!-- Projects will be dynamically injected here -->
         </div>
     </section>
+    <script src="projects.js"></script>
+    
+    
 
     <!-- Certifications Section -->
     <section id="certifications">
@@ -127,5 +106,78 @@
             </a>
         </div>
     </section>
+
+    <script>
+        // Fetch the skills data from the JSON file and inject into the DOM
+        fetch('skills.json')
+            .then(response => response.json())
+            .then(data => {
+                const skillsContainer = document.getElementById('skills-container');
+
+                data.skills.forEach(skill => {
+                    const skillDiv = document.createElement('div');
+                    skillDiv.classList.add('skill', skill.type);
+                    skillDiv.textContent = skill.name;
+                    skillsContainer.appendChild(skillDiv);
+                });
+            })
+            .catch(error => console.error('Error loading skills:', error));
+
+        // Fetch the education data from the JSON file and inject into the DOM
+        fetch('education.json')
+            .then(response => response.json())
+            .then(data => {
+                const educationContainer = document.getElementById('education-container');
+
+                data.education.forEach(item => {
+                    const educationDiv = document.createElement('div');
+                    educationDiv.classList.add('education-item');
+
+                    const degree = document.createElement('h3');
+                    degree.textContent = item.degree;
+                    educationDiv.appendChild(degree);
+
+                    const institution = document.createElement('p');
+                    institution.textContent = item.institution;
+                    educationDiv.appendChild(institution);
+
+                    const year = document.createElement('p');
+                    year.textContent = `Graduated: ${item.graduationYear || item.completionYear}`;
+                    educationDiv.appendChild(year);
+
+                    educationContainer.appendChild(educationDiv);
+                });
+            })
+            .catch(error => console.error('Error loading education data:', error));
+            // Fetch the project data from the JSON file and inject into the DOM
+        fetch('projects.json')
+        .then(response => response.json())
+        .then(data => {
+            const projectList = document.getElementById('project-list');
+
+            data.projects.forEach(project => {
+                const projectDiv = document.createElement('div');
+                projectDiv.classList.add('project');
+
+                const projectTitle = document.createElement('h3');
+                projectTitle.textContent = project.title;
+                projectDiv.appendChild(projectTitle);
+
+                const projectDate = document.createElement('p');
+                projectDate.textContent = `Date: ${project.date}`;
+                projectDiv.appendChild(projectDate);
+
+                const projectDescription = document.createElement('p');
+                projectDescription.textContent = project.description;
+                projectDiv.appendChild(projectDescription);
+
+                projectList.appendChild(projectDiv);
+            });
+        })
+        .catch(error => console.error('Error loading project data:', error));
+
+
+    
+    </script>
 </body>
 </html>

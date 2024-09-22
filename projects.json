@@ -1,0 +1,15 @@
+{
+    "projects": [
+      {
+        "title": "Chess Game in C++ using Object-Oriented Programming (OOP)",
+        "date": "2022",
+        "description": "This project is a fully functional console-based chess game developed in C++ using Object-Oriented Programming (OOP) principles. The game simulates a standard two-player chess match with all the standard chess rules, including castling, en passant, and pawn promotion. The board and pieces are represented as classes, with each piece having its own movement logic. The game also includes validation for legal moves and checks for checkmate or stalemate conditions. The design emphasizes modularity, making it easy to expand or modify the game logic."
+      },
+      {
+        "title": "Tic-Tac-Toe Game in C++",
+        "date": "2022",
+        "description": "This project is a simple console-based Tic-Tac-Toe game developed using C++. It allows two players to take turns marking the grid, checks for winning conditions, and handles cases of a draw. The game uses basic C++ structures for the board and player moves, with clear logic for checking rows, columns, and diagonals to determine the winner."
+      }
+    ]
+  }
+  
